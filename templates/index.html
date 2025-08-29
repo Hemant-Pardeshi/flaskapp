@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Selector & File Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Animal Selector & File Upload</h1>
+
+        <!-- Animal Selection Box -->
+        <div class="box">
+            <h2>Select an Animal</h2>
+            <form id="animalForm">
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="animal" value="cat" class="animal-checkbox">
+                        <span class="checkmark"></span>
+                        Cat
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="animal" value="dog" class="animal-checkbox">
+                        <span class="checkmark"></span>
+                        Dog
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="animal" value="elephant" class="animal-checkbox">
+                        <span class="checkmark"></span>
+                        Elephant
+                    </label>
+                </div>
+            </form>
+
+            <!-- Animal Image Display -->
+            <div id="animalImageContainer" class="image-container" style="display: none;">
+                <img id="animalImage" src="" alt="Selected Animal">
+                <p id="animalName"></p>
+            </div>
+        </div>
+
+        <!-- File Upload Box -->
+        <div class="box">
+            <h2>Upload a File</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="file-upload-container">
+                    <input type="file" id="fileInput" name="file" accept="*/*">
+                    <label for="fileInput" class="file-upload-label">
+                        <span class="upload-icon">📁</span>
+                        Choose File
+                    </label>
+                    <button type="submit" id="uploadButton" disabled>Upload</button>
+                </div>
+            </form>
+
+            <!-- File Information Display -->
+            <div id="fileInfoContainer" class="file-info" style="display: none;">
+                <h3>File Information:</h3>
+                <p><strong>Name:</strong> <span id="fileName"></span></p>
+                <p><strong>Size:</strong> <span id="fileSize"></span></p>
+                <p><strong>Type:</strong> <span id="fileType"></span></p>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="messageContainer" class="message-container"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

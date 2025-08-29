@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+.box {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 500;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+/* Checkbox Styles */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    font-size: 1.1em;
+}
+
+.checkbox-label:hover {
+    background-color: #f7fafc;
+}
+
+.animal-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e0;
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.animal-checkbox:checked+.checkmark {
+    background-color: #4299e1;
+    border-color: #4299e1;
+}
+
+.animal-checkbox:checked+.checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Image Container */
+.image-container {
+    text-align: center;
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.image-container img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.image-container p {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #4a5568;
+    text-transform: capitalize;
+}
+
+/* File Upload Styles */
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#fileInput {
+    display: none;
+}
+
+.file-upload-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+}
+
+.file-upload-label:hover {
+    background: linear-gradient(135deg, #3182ce, #2c5282);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+}
+
+.upload-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+#uploadButton {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+#uploadButton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #38a169, #2f855a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}
+
+#uploadButton:disabled {
+    background: #e2e8f0;
+    color: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* File Info Styles */
+.file-info {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #4299e1;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.file-info h3 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.file-info p {
+    margin-bottom: 8px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.file-info strong {
+    color: #4a5568;
+    font-weight: 600;
+}
+
+/* Message Container */
+.message-container {
+    margin-top: 20px;
+}
+
+.message {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+.message.success {
+    background-color: #c6f6d5;
+    color: #2f855a;
+    border-left: 4px solid #48bb78;
+}
+
+.message.error {
+    background-color: #fed7d7;
+    color: #c53030;
+    border-left: 4px solid #f56565;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .box {
+        padding: 20px;
+    }
+
+    .file-upload-container {
+        gap: 12px;
+    }
+
+    .image-container img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
